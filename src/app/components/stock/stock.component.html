@@ -1,10 +1,6 @@
-<div class="btn-group">
-    <button class="createBtn" (click)="itemchange('Create Item')">Create</button>
-    <button class="updateBtn" (click)="itemchange('Update Item')">Update</button>
-</div>
-<div class="stock-form" id="formdetails" *ngIf="show">
+<div class="stock-form" id="formdetails">
     <form action="">
-        <h1 id="item">{{value}}</h1>
+        <h1 id="item">Add your Product details</h1>
         <div class="fields">
             <div class="input-fields">
                 <label for="">Item Name:

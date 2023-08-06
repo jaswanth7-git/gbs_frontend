@@ -7,15 +7,4 @@ import { Component } from '@angular/core';
 })
 export class StockComponent {
   
-  value:string | undefined;
-  show: any;
-  itemchange(id:string) {
-    this.value = id;
-    if(id=="Create Item"){
-      this.show = "show";
-    }
-    if(id=="Update Item"){
-      this.show = "show";
-    }
-  }
 }

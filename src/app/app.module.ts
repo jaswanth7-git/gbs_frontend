@@ -7,13 +7,15 @@ import { BarcodegenaratorComponent } from './components/barcodegenarator/barcode
 import { routes } from './app.router';
 import { StockComponent } from './components/stock/stock.component';
 import { LoginComponent } from './components/login/login.component';
+import { NavbarComponent } from './navbar/navbar.component';
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     BarcodegenaratorComponent,
     StockComponent,
-    LoginComponent
+    LoginComponent,
+    NavbarComponent
   ],  
   imports: [
     BrowserModule,

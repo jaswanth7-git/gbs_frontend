@@ -1,0 +1,48 @@
+<div class="btn-group">
+    <button class="createBtn" (click)="itemchange('Create Item')">Create</button>
+    <button class="updateBtn" (click)="itemchange('Update Item')">Update</button>
+</div>
+<div class="stock-form" id="formdetails" *ngIf="show">
+    <form action="">
+        <h1 id="item">{{value}}</h1>
+        <div class="fields">
+            <div class="input-fields">
+                <label for="">Item Name:
+                    <input type="text" placeholder="Item Name" required></label><br>
+            </div>
+            <div class="input-fields">
+                <label for="">HSN Code:
+                    <input type="number" placeholder="HSN Code" required></label><br>
+            </div>
+            <div class="input-fields">
+                <label for="">Gram Weight:
+                    <input type="number" placeholder="Gram Weight" required></label><br>
+            </div>
+            <div class="input-fields">
+                <label for="">Net Weight:
+                    <input type="number" placeholder="Net Weight" required></label><br>
+            </div>
+            <div class="input-fields">
+                <label for="">Rate Per Gram:
+                    <input type="number" placeholder="Rate Per Gram" required></label><br>
+            </div>
+            <div class="input-fields">
+                <label for="">Value Rs.:
+                    <input type="number" placeholder="Value Rs." required></label><br>
+            </div>
+            <div class="input-fields">
+                <label for="">Stone Rs.:
+                    <input type="number" placeholder="Stone Rs." required></label><br>
+            </div>
+            <div class="input-fields">
+                <label for="">Discount Rs.:
+                    <input type="number" placeholder="Discount Rs." required></label><br>
+            </div>
+            <div class="input-fields">
+                <label for="">Amount Rs.:
+                    <input type="number" placeholder="Amount Rs." required></label><br>
+            </div>
+        </div>
+        <input type="submit" value="submit">
+    </form>
+</div>

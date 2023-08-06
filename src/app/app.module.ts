@@ -5,11 +5,15 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { BarcodegenaratorComponent } from './components/barcodegenarator/barcodegenarator.component';
 import { routes } from './app.router';
+import { StockComponent } from './components/stock/stock.component';
+import { LoginComponent } from './components/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    BarcodegenaratorComponent
+    BarcodegenaratorComponent,
+    StockComponent,
+    LoginComponent
   ],  
   imports: [
     BrowserModule,

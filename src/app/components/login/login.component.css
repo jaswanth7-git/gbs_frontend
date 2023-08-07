@@ -4,7 +4,10 @@
 * {
     box-sizing: border-box;
 }
-
+img {
+    width: 40%;
+    height: 30%;
+}
 .maincomponent {
     font-family: 'Montserrat', sans-serif;
     background: #f6f5f7;

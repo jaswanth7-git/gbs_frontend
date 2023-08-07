@@ -1,44 +1,54 @@
 <div class="stock-form" id="formdetails">
-    <form action="">
+    <form #stockform = "ngForm" action="">
         <h1 id="item">Add your Product details</h1>
         <div class="fields">
             <div class="input-fields">
                 <label for="">Item Name:
-                    <input type="text" placeholder="Item Name" required></label><br>
+                    <input type="text" placeholder="Item Name" [(ngModel)]="itemname" name="item-name"  ngModel required></label><br>
+            </div>
+            <div class="input-fields">
+                <label for="">Category:
+               <select  (change)="getSelectedValue($event)">
+                    <option value="">--Select Category--</option>
+                    <option *ngFor="let item of categories" [ngValue]="categories.CategoryID">{{item.CategoryName}}</option>
+                </select>
+                </label>
             </div>
             <div class="input-fields">
                 <label for="">HSN Code:
-                    <input type="number" placeholder="HSN Code" required></label><br>
+                    <input type="number" placeholder="HSN Code" [(ngModel)]="hsncode" name="hsncode"  ngModel required ></label><br>
             </div>
             <div class="input-fields">
                 <label for="">Gram Weight:
-                    <input type="number" placeholder="Gram Weight" required></label><br>
+                    <input type="number" placeholder="Gram Weight" [(ngModel)]="gramweight" name="gramweight"  ngModel required></label><br>
             </div>
             <div class="input-fields">
                 <label for="">Net Weight:
-                    <input type="number" placeholder="Net Weight" required></label><br>
+                    <input type="number" placeholder="Net Weight" [(ngModel)]="netweight" name="netweight"  ngModel required></label><br>
             </div>
             <div class="input-fields">
                 <label for="">Rate Per Gram:
-                    <input type="number" placeholder="Rate Per Gram" required></label><br>
+                    <input type="number" placeholder="Rate Per Gram" [(ngModel)]="ratepergram" name="ratepergram"  ngModel required></label><br>
             </div>
             <div class="input-fields">
                 <label for="">Value Rs.:
-                    <input type="number" placeholder="Value Rs." required></label><br>
+                    <input type="number" placeholder="Value Rs." [(ngModel)]="value" name="value"  ngModel required></label><br>
             </div>
             <div class="input-fields">
                 <label for="">Stone Rs.:
-                    <input type="number" placeholder="Stone Rs." required></label><br>
+                    <input type="number" placeholder="Stone Rs." [(ngModel)]="stoneRs" name="stoneRs"  ngModel required></label><br>
             </div>
             <div class="input-fields">
                 <label for="">Discount Rs.:
-                    <input type="number" placeholder="Discount Rs." required></label><br>
+                    <input type="number" placeholder="Discount Rs." [(ngModel)]="discountRs" name="discountRs"  ngModel required></label><br>
             </div>
             <div class="input-fields">
                 <label for="">Amount Rs.:
-                    <input type="number" placeholder="Amount Rs." required></label><br>
+                    <input type="number" placeholder="Amount Rs." [(ngModel)]="amountRs" name="amountRs"  ngModel required></label><br>
             </div>
         </div>
-        <input type="submit" value="submit">
+        <!-- <input type="submit" (click)="submit_product" value="submit"> -->
+        <a class="btn btn-dark" (click)="submit_product()">Add</a>
     </form>
+    <!-- {{stockform.value | json }} -->
 </div>

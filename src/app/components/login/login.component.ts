@@ -23,12 +23,8 @@ export class LoginComponent {
     };
     this.api.postApi("api/user/"+this.branch,data).subscribe((response) => {
       this.role = response.Role;
-      if(this.role=='admin'){
-        this.router.navigate(['./stock']);
-      }
-      else{
-        this.router.navigate(['./']);
-      }
+      this.router.navigate(['./dashboard']);
+      localStorage.setItem("role",this.role);
     });
   }
 }

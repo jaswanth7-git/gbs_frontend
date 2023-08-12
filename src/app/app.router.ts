@@ -3,10 +3,11 @@ import { BarcodegenaratorComponent } from './components/barcodegenarator/barcode
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {StockComponent} from './components/stock/stock.component';
 import {LoginComponent} from './components/login/login.component'
+import { NavbarComponent } from './navbar/navbar.component';
 export const router: Routes=[
-    {path : '',component : DashboardComponent},
+    {path:'',component:LoginComponent},
+    {path : 'dashboard',component : DashboardComponent},
     {path : 'barcodegen' ,component : BarcodegenaratorComponent},
     {path: 'stock',component:StockComponent},
-    {path:'login',component:LoginComponent}
 ];
 export const routes = RouterModule.forRoot(router);

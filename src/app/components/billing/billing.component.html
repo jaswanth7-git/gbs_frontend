@@ -1,0 +1,80 @@
+<div class="container-fluid mt-2 mb-5">
+    <div class="billing-form" id="formdetails">
+        <form #billingform = "ngForm" action="">
+            <h1 id="item">Billing Details</h1>
+            <div class="fields">
+                <div class="input-fields">
+                    <label for="">Customer Name:
+                        <input type="text" placeholder="Customer Name" [(ngModel)]="customername" name="customer-name"  ngModel required></label><br>
+                </div>
+                <div class="input-fields">
+                    <label for="">Mobile Number:
+                        <input type="text" placeholder="Mobile Number" [(ngModel)]="mobileno" name="mobile-number"  ngModel required></label><br>
+                </div>
+                <div class="input-fields">
+                    <label for="">Aadhar Number:
+                        <input type="text" placeholder="Aadhar Number" [(ngModel)]="aadharno" name="aadhar-number"  ngModel required></label><br>
+                </div>
+                <div class="input-fields">
+                    <label for="">PAN / GST No:
+                        <input type="text" placeholder="PAN / GST No" [(ngModel)]="pangstno" name="pangst-no"  ngModel required></label><br>
+                </div>
+                <div class="input-fields">
+                    <label for="">State Code:
+                        <input type="text" placeholder="State Code" [(ngModel)]="statecode" name="state-code"  ngModel required></label><br>
+                </div>
+                <div class="input-fields">
+                    <label for="">Bar Code:
+                        <input type="text" placeholder="Product Bar Code" [(ngModel)]="pbarcode" name="productbar-code"  ngModel required></label><br>
+                </div>
+                <div class="input-fields">
+                    <label for="">Item Name:
+                        <input type="text" placeholder="Item Name" [(ngModel)]="itemname" name="item-name"  ngModel required></label><br>
+                </div>
+                <div class="input-fields">
+                    <label for="">Category:
+                   <select  (change)="getSelectedValue($event)">
+                        <option value="">--Select Category--</option>
+                        <option *ngFor="let item of categories" [ngValue]="categories.CategoryID">{{item.CategoryName}}</option>
+                    </select>
+                    </label>
+                </div>
+                <div class="input-fields">
+                    <label for="">HSN Code:
+                        <input type="number" placeholder="HSN Code" [(ngModel)]="hsncode" name="hsncode"  ngModel required ></label><br>
+                </div>
+                <div class="input-fields">
+                    <label for="">Gram Weight:
+                        <input type="number" placeholder="Gram Weight" [(ngModel)]="gramweight" name="gramweight"  ngModel required></label><br>
+                </div>
+                <div class="input-fields">
+                    <label for="">Net Weight:
+                        <input type="number" placeholder="Net Weight" [(ngModel)]="netweight" name="netweight"  ngModel required></label><br>
+                </div>
+                <div class="input-fields">
+                    <label for="">Rate Per Gram:
+                        <input type="number" placeholder="Rate Per Gram" [(ngModel)]="ratepergram" name="ratepergram"  ngModel required></label><br>
+                </div>
+                <div class="input-fields">
+                    <label for="">Value Rs.:
+                        <input type="number" placeholder="Value Rs." [(ngModel)]="value" name="value"  ngModel required></label><br>
+                </div>
+                <div class="input-fields">
+                    <label for="">Stone Rs.:
+                        <input type="number" placeholder="Stone Rs." [(ngModel)]="stoneRs" name="stoneRs"  ngModel required></label><br>
+                </div>
+                <div class="input-fields">
+                    <label for="">Discount Rs.:
+                        <input type="number" placeholder="Discount Rs." [(ngModel)]="discountRs" name="discountRs"  ngModel required></label><br>
+                </div>
+                <div class="input-fields">
+                    <label for="">Amount Rs.:
+                        <input type="number" placeholder="Amount Rs." [(ngModel)]="amountRs" name="amountRs"  ngModel required></label><br>
+                </div>
+            </div>
+            <!-- <input type="submit" (click)="submit_product" value="submit"> -->
+            <a class="btn billBtn btn-dark mb-3" (click)="submit_product()">Generate Bill</a>
+        </form>
+        <!-- {{stockform.value | json }} -->
+    </div>
+</div>

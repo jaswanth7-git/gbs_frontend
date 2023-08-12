@@ -10,6 +10,7 @@ import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { BillingComponent } from './components/billing/billing.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     BarcodegenaratorComponent,
     StockComponent,
     LoginComponent,
-    NavbarComponent
+    NavbarComponent,
+    BillingComponent
   ],  
   imports: [
     BrowserModule,

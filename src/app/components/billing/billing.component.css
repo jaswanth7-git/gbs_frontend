@@ -1,0 +1,64 @@
+.btn-group{
+    text-align: center;
+    padding-top: 10px;
+    margin-left: 600px;
+}
+.createBtn, .updateBtn{
+    border-radius: 10px;
+    background-color: blue;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    font-size: 15px;
+    margin: 3px 1px;
+    cursor: pointer;
+}
+.billing-form{
+    text-align: center;
+}
+.fields{
+    display: flex;
+    flex-wrap: wrap;
+}
+.input-fields{
+    margin-top: 20px;
+    width: 33%;
+}
+label{
+    padding: 10px;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: "means-web";
+    display: block;
+}
+input[type=text], input[type=number], select{
+    width: 250px;
+    float: right;
+    border: 2px solid rgb(143, 142, 142);
+    border-radius: 5px;
+}
+::placeholder{
+    margin-top: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+
+input[type=submit]{
+    margin-top: 20px;
+    float: center !important;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: blue;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    font-size: 15px;
+    margin: 3px 1px;
+    cursor: pointer;
+}
+#item{
+    font-family: "Emilia Regular";
+}
+.billBtn{
+    margin-top: -20px;
+}

@@ -25,7 +25,7 @@ h1 {
     font-weight: bold;
     margin: 0;
     color: beige;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 p {
@@ -100,7 +100,7 @@ input[type=password] {
     padding: 10px 0;
     transition: border 0.5s;
     outline: none;
-    color: #fff;
+    color: black;
 }
 
 input[type=email] {
@@ -115,7 +115,7 @@ input[type=email] {
     padding: 10px 0;
     transition: border 0.5s;
     outline: none;
-    color: #fff;
+    color: black;
     font-weight: bold;
 }
 .form-container {
@@ -131,3 +131,8 @@ input[type=email] {
     z-index: 2;
 }
 
+select{
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+}

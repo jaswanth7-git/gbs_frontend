@@ -4,9 +4,14 @@
             <form action="">
                 <img src="../../../assets/Full Logo.png" alt="">
                 <h1>Sign In</h1>
-                <input type="email" placeholder="User Name">
-                <input type="password" placeholder="Password">
-                <button class="signinBtn">Sign In</button>
+                <input type="email" placeholder="User Name" [(ngModel)]="user_name" name="username"  ngModel required>
+                <input type="password" placeholder="Password" [(ngModel)]="password" name="password"  ngModel required autocomplete="on">
+                <select name="branch" id="branch" (change)="getBranch($event)">
+                    <option value="">--Select Branch--</option>
+                    <option value="b1">Branch 1</option>
+                    <option value="b2">Branch 2</option>
+                </select>
+                <button class="signinBtn" (click)="login_details()">Sign In</button>
             </form>
         </div>
     </div>

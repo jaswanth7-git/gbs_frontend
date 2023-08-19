@@ -30,6 +30,7 @@ export class BillingComponent {
   statecode:any;
   pbarcode:any;
   number:any;
+  peditBtns:any;
   
   constructor(private api: ApicallService) {}
   ngOnInit() {
@@ -40,15 +41,11 @@ export class BillingComponent {
   getSelectedValue(event:any){
     this.CategoryDropdownResponse = event.target.value;
     this.barcode = this.CategoryDropdownResponse.slice(0,2);
-    
   }
-  inputHandle(event:any) {
-    this.number = event.target.value;
-    if (this.number.length == 10) {
-      this.api.getApi("api/products/barcode/"+this.number).subscribe((response) => {
+  getProductDetails(productBarCode:any) {
+      this.api.getApi("api/products/barcode/"+productBarCode).subscribe((response) => {
         console.log(response);
         this.itemname = response.ItemName_Description;
-        // this.CategoryDropdownResponse = response.
         this.hsncode = response.HSNCode,
         this.gramweight = response.GrWeight_Grams,
         this.netweight = response.NetWeight_Grams,
@@ -58,7 +55,36 @@ export class BillingComponent {
         this.discountRs = response.Discount_RsPs,
         this.amountRs = response.Amount_RsPs
       });
+  }
+
+  add_billing_product(product_bar_code:any){
+    if(product_bar_code==undefined || product_bar_code.length<=9){
+      document.getElementById("pbarcode-error")!.innerText="The product bar code length should be 10";
     }
+    if(product_bar_code.length==10){
+      document.getElementById("pbarcode-error")!.innerText="";
+      let table: HTMLTableElement = <HTMLTableElement>document.getElementById("billing-tbody");
+      let hrow = table.insertRow(0);
+      let single_product_details:string[];
+
+      // Ee array lo values api nunchi ostundi for the 7 mandatory values
+
+      single_product_details=["value 1","value 2","value 3","value 4","value 5","value 6","value 7"];
+      for(let i=0;i<7;i++){
+        let cell = hrow.insertCell(i);
+        cell.innerHTML = single_product_details[i];
+      }
+      hrow.insertCell(7).innerHTML=`<button type="submit" data-pbcode="`+product_bar_code+`" data-bs-toggle="modal" data-bs-target="#productEditModal" class="btn btn-primary pedit-Btns">Edit</button>`;
+      let pbarcodeelem=<HTMLInputElement>document.getElementById("pbarcode-inp");
+      pbarcodeelem!.value="";
+      this.peditBtns=document.querySelectorAll(".pedit-Btns");
+      [...this.peditBtns].forEach((peditBtn) => {
+        peditBtn.addEventListener('click', () => {
+          this.getProductDetails(peditBtn.getAttribute("data-pbcode"));
+        });
+      });
+    }
+
   }
   
   submit_billing(){

@@ -23,8 +23,9 @@ export class LoginComponent {
     };
     this.api.postApi("api/user/"+this.branch,data).subscribe((response) => {
       this.role = response.Role;
-      this.router.navigate(['./dashboard']);
+      this.router.navigate(['./navbar']);
       localStorage.setItem("role",this.role);
+      localStorage.setItem("branch",this.branch);
     });
   }
 }

@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, VERSION, ViewChild, ElementRef } from '@angular/core';
 import { ApicallService } from "../../apicall.service";
-import * as uuid from 'uuid';
 
 declare var bitconverter: any;
 @Component({
@@ -30,7 +29,7 @@ export class BillingComponent {
   pangstno:any;
   statecode:any;
   pbarcode:any;
-
+  number:any;
   
   constructor(private api: ApicallService) {}
   ngOnInit() {
@@ -38,18 +37,41 @@ export class BillingComponent {
       this.categories = response;
     });
   }
- 
   getSelectedValue(event:any){
     this.CategoryDropdownResponse = event.target.value;
     this.barcode = this.CategoryDropdownResponse.slice(0,2);
+    
+  }
+  inputHandle(event:any) {
+    this.number = event.target.value;
+    if (this.number.length == 10) {
+      this.api.getApi("api/products/barcode/"+this.number).subscribe((response) => {
+        console.log(response);
+        this.itemname = response.ItemName_Description;
+        // this.CategoryDropdownResponse = response.
+        this.hsncode = response.HSNCode,
+        this.gramweight = response.GrWeight_Grams,
+        this.netweight = response.NetWeight_Grams,
+        this.ratepergram = response.Rate_Per_Gram,
+        this.value = response.ValAdd_RsPs,
+        this.stoneRs = response.Stones_RsPs,
+        this.discountRs = response.Discount_RsPs,
+        this.amountRs = response.Amount_RsPs
+      });
+    }
   }
   
-  submit_product(){
-    let myId = uuid.v4();
-    console.log(myId.slice(0,6));
+  submit_billing(){
     let data = {
+      CustomerName: this.customername,
+      Phone: this.mobileno,
+      Aadhar: this.aadharno,
+      Pan_Card: this.pangstno,
+      StateCode: this.statecode,
+      BarCode: this.pbarcode,
       ItemName_Description: this.itemname,
-      HSNCode: this.hsncode+"",
+      CategoryName: this.CategoryDropdownResponse,
+      HSNCode: this.hsncode,
       GrWeight_Grams: this.gramweight,
       NetWeight_Grams: this.netweight,
       Rate_Per_Gram: this.ratepergram,
@@ -57,12 +79,8 @@ export class BillingComponent {
       Stones_RsPs: this.stoneRs,
       Discount_RsPs: this.discountRs,
       Amount_RsPs: this.amountRs,
-      BarCode_path: "Pathuuuu",
-      BarCode: this.barcode+myId.slice(0,8),
-      Branch: "Delhi",
-      
     };
-    this.api.postApi("api/products/"+this.CategoryDropdownResponse,data).subscribe((response) => {
+    this.api.postApi("api/sales/",data).subscribe((response) => {
       console.log(response);
       console.log("Product Pushed to database");
     });

@@ -25,7 +25,7 @@
                 </div>
                 <div class="input-fields">
                     <label for="">Bar Code:
-                        <input type="text" placeholder="Product Bar Code" [(ngModel)]="pbarcode" name="productbar-code"  ngModel required></label><br>
+                        <input type="text" placeholder="Product Bar Code" [(ngModel)]="pbarcode" name="productbar-code" maxlength="10" minlength="10" (input)="inputHandle($event)" required></label><br>
                 </div>
                 <div class="input-fields">
                     <label for="">Item Name:
@@ -73,7 +73,7 @@
                 </div>
             </div>
             <!-- <input type="submit" (click)="submit_product" value="submit"> -->
-            <a class="btn billBtn btn-dark mb-3" (click)="submit_product()">Generate Bill</a>
+            <a class="btn billBtn btn-dark mb-3" (click)="submit_billing()">Generate Bill</a>
         </form>
         <!-- {{stockform.value | json }} -->
     </div>

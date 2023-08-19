@@ -10,6 +10,7 @@ export const router: Routes=[
     {path : 'dashboard',component : DashboardComponent},
     {path : 'barcodegen' ,component : BarcodegenaratorComponent},
     {path: 'stock',component:StockComponent},
-    {path: 'billing',component:BillingComponent}
+    {path: 'billing',component:BillingComponent},
+    {path:'navbar',component: NavbarComponent}
 ];
 export const routes = RouterModule.forRoot(router);

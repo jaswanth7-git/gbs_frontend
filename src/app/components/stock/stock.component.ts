@@ -21,13 +21,25 @@ export class StockComponent {
   gramweight:any;
   netweight: any;
   ratepergram:any;
-  value:any;
+  vavalue:any;
   stoneRs:any;
   discountRs:any;
   amountRs: any;
   CategoryDropdownResponse : any;
+  SubCategoryDropdownResponse:any;
   barcode:any;
   orchardLike: string = 'nnone';
+  huid:any;
+  tagnumber:any;
+  carat:any;
+  vatype:any;
+  stonetype:any;
+  stonepi :any;
+  mcvalue:any;
+  wctype:any;
+  wcvalue:any;
+  tgnumber:any;
+
   
   constructor(private api: ApicallService) {}
   ngOnInit() {
@@ -36,9 +48,26 @@ export class StockComponent {
     });
   }
  
-  getSelectedValue(event:any){
+  getCategoryValue(event:any){
     this.CategoryDropdownResponse = event.target.value;
-    this.barcode = this.CategoryDropdownResponse.slice(0,2);
+  }
+  getSubCategoryValue(event:any){
+    this.SubCategoryDropdownResponse = event.target.value;
+  }
+  getCaratValue(event:any){
+    this.carat = event.target.value;
+  }
+  getMcValue(event:any){
+    this.vatype = event.target.value;
+  }
+  getWcValue(event:any){
+    this.wctype = event.target.value;
+  }
+  getStoneType(event:any){
+    this.stonetype = event.target.value;
+  }
+  getStone(event:any){
+    this.stonepi = event.target.value;
   }
   
   submit_product(){
@@ -47,13 +76,12 @@ export class StockComponent {
     let data = {
       ItemName_Description: this.itemname,
       HSNCode: this.hsncode+"",
-      GrWeight_Grams: this.gramweight,
-      NetWeight_Grams: this.netweight,
-      Rate_Per_Gram: this.ratepergram,
-      ValAdd_RsPs: this.value,
-      Stones_RsPs: this.stoneRs,
-      Discount_RsPs: this.discountRs,
-      Amount_RsPs: this.amountRs,
+      GrWeight_Grams: this.gramweight+"",
+      NetWeight_Grams: this.netweight+"",
+      Rate_Per_Gram: this.ratepergram+"",
+      Stones_RsPs: this.stoneRs+"",
+      Discount_RsPs: this.discountRs+"",
+      Amount_RsPs: this.amountRs+"",
       BarCode_path: "Pathuuuu",
       BarCode: this.barcode+myId.slice(0,8),
       Branch: "Delhi",

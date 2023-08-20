@@ -32,19 +32,26 @@ export class StockComponent {
   huid:any;
   tagnumber:any;
   carat:any;
-  vatype:any;
+  mctype:any;
   stonetype:any;
   stonepi :any;
   mcvalue:any;
   wctype:any;
   wcvalue:any;
   tgnumber:any;
+  mgamount:any;
+  wdamount:any;
+  vaamout:any;
+  stoneamount:any;
+  isVisible!: boolean | false;
+  stonepieces:any;
 
   
   constructor(private api: ApicallService) {}
   ngOnInit() {
     this.api.getApi("api/categories/").subscribe((response) => {
       this.categories = response;
+      console.log(this.categories);
     });
   }
  
@@ -58,18 +65,91 @@ export class StockComponent {
     this.carat = event.target.value;
   }
   getMcValue(event:any){
-    this.vatype = event.target.value;
+    this.mctype = event.target.value;
+    this.mgcalculate();
   }
   getWcValue(event:any){
     this.wctype = event.target.value;
+    this.wdcalculate();
   }
   getStoneType(event:any){
     this.stonetype = event.target.value;
   }
   getStone(event:any){
     this.stonepi = event.target.value;
+    if(this.stonepi == "pieces"){
+      this.isVisible = true;
+    }
+    else{
+      this.isVisible = false;
+    }
   }
-  
+  mgcalculate(){
+    if(this.mctype =="percentage" ){
+      this.mgamount = (this.netweight*this.ratepergram*this.mcvalue)/100;
+    }
+    else{
+      this.mgamount = parseInt(this.mcvalue);
+    }
+    if(this.wdamount == undefined){
+      this.vavalue = this.mgamount;
+      this.amountRs = this.netweight*this.ratepergram+this.mgamount;
+    }
+    else{
+      this.vavalue = this.mgamount+this.wdamount;
+      this.amountRs = this.netweight*this.ratepergram+this.mgamount+this.wdamount;
+    }
+    this.amountRs = this.amountRs.toFixed(4);
+  }
+
+  wdcalculate(){
+    if(this.wctype =="percentage" ){
+      this.wdamount = (this.netweight*this.ratepergram*this.wcvalue)/100;
+    }
+    else{
+      this.wdamount = parseInt(this.wcvalue);
+    }
+    if(this.mgamount == undefined){
+      this.vavalue = this.wdamount;
+      this.amountRs = this.netweight*this.ratepergram+this.wdamount;
+    }
+    else{
+      this.vavalue = this.mgamount+this.wdamount;
+      this.amountRs = this.netweight*this.ratepergram+this.mgamount+this.wdamount;
+    }
+    this.amountRs = this.amountRs.toFixed(4);
+  }
+  stonecalculate(){
+    if(this.stonepi == "pieces"){
+      this.stoneamount = this.stoneRs*this.stonepieces;
+    }
+    else{
+      this.stoneamount = parseInt(this.stoneRs);
+    }
+    if(this.mgamount == undefined && this.wdamount == undefined){
+      this.amountRs = this.netweight*this.ratepergram+this.stoneamount;
+    }
+    else if(this.mgamount == undefined){
+      this.amountRs = this.netweight*this.ratepergram+this.wdamount+this.stoneamount;
+    }
+    else if(this.wdamount == undefined){
+      this.amountRs = this.netweight*this.ratepergram+this.mgamount+this.stoneamount;
+    }
+    else{
+      this.amountRs = this.netweight*this.ratepergram+this.mgamount+this.wdamount+this.stoneamount;
+    }
+    this.amountRs = this.amountRs.toFixed(4);
+    
+  }
+  calculate(){
+    if(this.discountRs == undefined){
+      this.amountRs = this.netweight*this.ratepergram;
+    }
+    else{
+      this.amountRs = this.netweight*this.ratepergram-this.discountRs;
+    }
+    this.amountRs = this.amountRs.toFixed(4);
+  }
   submit_product(){
     let myId = uuid.v4();
     console.log(myId.slice(0,6));

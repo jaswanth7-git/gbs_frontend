@@ -3,7 +3,7 @@
         <h1 id="item">Add your Product details</h1>
         <div class="fields">
             <div class="input-fields">
-                <label for="">Carat Type:
+                <label for="carat-type">Carat Type:
                <select (change)="getCaratValue($event)">
                     <option value="">-- Select Carat --</option>
                     <option value="22K">22K</option>
@@ -13,7 +13,7 @@
                 </label>
             </div>
             <div class="input-fields">
-                <label for="">Category:
+                <label for="category">Category:
                <select  (change)="getCategoryValue($event)">
                     <option value="">--Select Category--</option>
                     <option *ngFor="let item of categories" [ngValue]="categories.CategoryID">{{item.CategoryName}}</option>
@@ -21,7 +21,7 @@
                 </label>
             </div>
             <div class="input-fields">
-                <label for="">Sub-Category:
+                <label for="subcategory">Sub-Category:
                <select (change)="getSubCategoryValue($event)">
                     <option value="">Select Sub-Category</option>
                     <option *ngFor="let item of categories" [ngValue]="categories.CategoryID">{{item.CategoryName}}</option>
@@ -29,69 +29,69 @@
                 </label>
             </div>
             <div class="input-fields">
-                <label for="">Item Name:
+                <label for="item-name">Item Name:
                     <input type="text" placeholder="Item Name" [(ngModel)]="itemname" name="item-name"  ngModel required></label><br>
             </div>
             <div class="input-fields">
-                <label for="">HUID:
+                <label for="huid">HUID:
                     <input type="text" placeholder="HUID" [(ngModel)]="huid" name="huid"  ngModel required ></label><br>
             </div>
             <div class="input-fields">
-                <label for="">HSN Code:
+                <label for="hsncode">HSN Code:
                     <input type="text" placeholder="HSN Code" [(ngModel)]="hsncode" name="hsncode"  ngModel required ></label><br>
             </div>
             <div class="input-fields">
-                <label for="">Tag No. :
+                <label for="tagno">Tag No. :
                     <input type="text" placeholder="Tag Number" [(ngModel)]="tgnumber" name="tgnumber"  ngModel required ></label><br>
             </div>
             <div class="input-fields">
-                <label for="">Barcode Prefix:
+                <label for="barcodeprefix">Barcode Prefix:
                     <input type="text" placeholder="Barcode Prefix" [(ngModel)]="barcode" name="barcode"  ngModel required ></label><br>
             </div>
             <div class="input-fields">
-                <label for="">Gram Weight:
+                <label for="gramweight">Gram Weight:
                     <input type="text" placeholder="Gram Weight" [(ngModel)]="gramweight" name="gramweight"  ngModel required></label><br>
             </div>
             <div class="input-fields">
-                <label for="">Net Weight:
+                <label for="netweight">Net Weight:
                     <input type="text" placeholder="Net Weight" [(ngModel)]="netweight" name="netweight"  ngModel required></label><br>
             </div>
             <div class="input-fields">
-                <label for="">Rate Per Gram:
-                    <input type="text" placeholder="Rate Per Gram" [(ngModel)]="ratepergram" name="ratepergram"  ngModel required></label><br>
+                <label for="ratepergram">Rate Per Gram:
+                    <input type="text" placeholder="Rate Per Gram" [(ngModel)]="ratepergram" name="ratepergram"  ngModel (change)="calculate()"></label><br>
             </div>
             <div class="input-fields">
-                <label for="">Making Charge:
+                <label for="making-charge">Making Charge:
                     <select (change)="getMcValue($event)">
-                        <option value="">Select type</option>
+                        <option value="">--Select type--</option>
                         <option value="percentage">Percentage</option>
                         <option value="amount">Amount</option>
                     </select>
                 </label>
             </div>
             <div class="input-fields">
-                <label for="">Making Direct:
-                    <input type="text" placeholder="Making Charge" [(ngModel)]="mcvalue" name="mcvalue"  ngModel required></label><br>
+                <label for="makingdirect">Making Direct:
+                    <input type="text" placeholder="Making Charge" [(ngModel)]="mcvalue" name="mcvalue"  ngModel (change)="mgcalculate()" required></label><br>
             </div>
             <div class="input-fields">
-                <label for="">Wastage Charge:
+                <label for="wastagecharge">Wastage Charge:
                     <select (change)="getWcValue($event)">
-                        <option value="">Select type</option>
+                        <option value="">--Select type--</option>
                         <option value="percentage">Percentage</option>
                         <option value="amount">Amount</option>
                     </select>
                 </label>
             </div>
             <div class="input-fields">
-                <label for="">Wastage Direct:
-                    <input type="text" placeholder="Wastage Charge" [(ngModel)]="wcvalue" name="wcvalue"  ngModel required></label><br>
+                <label for="wastagedirect">Wastage Direct:
+                    <input type="text" placeholder="Wastage Charge" [(ngModel)]="wcvalue" name="wcvalue"  ngModel (change)="wdcalculate()" required></label><br>
             </div>
             <div class="input-fields">
-                <label for="">V.A:
+                <label for="va">V.A:
                     <input type="text" placeholder="V.A" [(ngModel)]="vavalue" name="vavalue"  ngModel required></label><br>
             </div>
             <div class="input-fields">
-                <label for="">Stone Type:
+                <label for="stonetype">Stone Type:
                     <select (change)="getStoneType($event)">
                         <option value="">-- Select Stone Type --</option>
                         <option value="1">1</option>
@@ -101,7 +101,7 @@
                 </label>
             </div>
             <div class="input-fields">
-                <label for="">Stone Pieces/CTS:
+                <label for="stone">Stone Pieces/CTS:
                     <select (change)="getStone($event)">
                         <option value="">-- Select --</option>
                         <option value="pieces">Pieces</option>
@@ -109,12 +109,20 @@
                     </select>
                 </label>
             </div>
-            <div class="input-fields">
-                <label for="">Stone Rs.:
-                    <input type="text" placeholder="Stone Rs." [(ngModel)]="stoneRs" name="stoneRs"  ngModel required></label><br>
+            <div class="input-fields"  *ngIf="isVisible">
+                <label for="stonepieces">Stone Pieces.:
+                    <input type="text" placeholder="Stone Pieces." [(ngModel)]="stonepieces" name="stonepieces"  ngModel (change)="stonecalculate()" required></label><br>
             </div>
             <div class="input-fields">
-                <label for="">Amount Rs.:
+                <label for="stoneRs">Stone Rs.:
+                    <input type="text" placeholder="Stone Rs." [(ngModel)]="stoneRs" name="stoneRs"  ngModel (change)="stonecalculate()" required></label><br>
+            </div>
+            <div class="input-fields">
+                <label for="DiscountRs">Discount Rs:
+                    <input type="text" placeholder="Discount Rs." [(ngModel)]="discountRs" name="discountRs"  ngModel (change)="calculate()" required></label><br>
+            </div>
+            <div class="input-fields">
+                <label for="amountRs">Amount Rs.:
                     <input type="text" placeholder="Amount Rs." [(ngModel)]="amountRs" name="amountRs"  ngModel required></label><br>
             </div>
         </div>

@@ -11,6 +11,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BillingComponent } from './components/billing/billing.component';
+import { SalesComponent } from './components/sales/sales.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,8 @@ import { BillingComponent } from './components/billing/billing.component';
     StockComponent,
     LoginComponent,
     NavbarComponent,
-    BillingComponent
+    BillingComponent,
+    SalesComponent
   ],  
   imports: [
     BrowserModule,

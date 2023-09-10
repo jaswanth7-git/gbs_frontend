@@ -33,6 +33,7 @@ export class SalesComponent {
   stonetype:any;
   sviewBtns:any;
   singleSales:any;
+  panno:any;
 
   constructor(private api: ApicallService) {}
   ngOnInit() {
@@ -84,6 +85,7 @@ export class SalesComponent {
       this.gramweight=this.singleSales.GrWeight_Grams;
       this.netweight=this.singleSales.NetWeight_Grams;
       this.ratepergram=this.singleSales.Rate_Per_Gram;
+      this.panno=this.singleSales.Pan_Card;
       // this.mcvalue=this.singleSales.CustomerName; Missing in sales table
       // this.wcvalue=this.singleSales.CustomerName; Missing in sales table
       this.vavalue=this.singleSales.ValAdd_RsPs;

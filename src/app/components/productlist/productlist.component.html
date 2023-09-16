@@ -41,8 +41,9 @@
     <td>{{product.BarCode}}</td>
     <td>{{product.Branch}}</td>
     <td>{{product.ActiveStatus}}</td>
-    <td><button type="submit" (click)="seeSingleProduct(product.BarCode)" data-bs-toggle="modal" data-bs-target="#productListEditModal" class="btn btn-primary peditPL-Btns">Edit</button>
-        <button type="submit" (click)="deleteProduct(product.HSNCode)" data-bs-toggle="modal" data-bs-target="#productListdeleteModal" class="btn btn-danger peditPL-Btns">Delete</button></td>
+    <td>
+      <button type="submit" (click)="seeSingleProduct(product.BarCode)" data-bs-toggle="modal" data-bs-target="#productListEditModal" class="btn btn-primary peditPL-Btns">Edit</button>
+      <button type="submit" (click)="deleteProduct(product.HSNCode)" class="btn btn-danger">Delete</button></td>
 </tr>
 
 </table>

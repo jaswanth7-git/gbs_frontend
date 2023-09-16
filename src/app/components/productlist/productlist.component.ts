@@ -84,12 +84,27 @@ export class ProductlistComponent {
     
   }
 
-  deleteProduct(hsncode:any){
-    // console.log("LOGGER");
-    // console.log(hsncode);
-    // this.api.delete("api/delete/:"+hsncode+"/:"+huid).subscribe(() => {
-    //   this.fetchItems(); 
-    // })
+  deleteProduct(hsncode:any,huid:any){
+    let data = {
+      ItemName_Description: this.itemname,
+      HSNCode: this.hsncode+"",
+      GrWeight_Grams: this.gramweight+"",
+      NetWeight_Grams: this.netweight+"",
+      Rate_Per_Gram: this.ratepergram+"",
+      Stones_RsPs: this.stoneRs+"",
+      Discount_RsPs: this.discountRs+"",
+      Amount_RsPs: this.amountRs+"",
+      BarCode_path: "Pathuuuu",
+      BarCode: this.barcode,
+      Branch: "Delhi",
+      
+    };
+    console.log("LOGGER");
+      console.log(hsncode);
+      this.api.putApi("api/products/delete/"+hsncode+"/"+huid,data).subscribe(() => {
+        this.fetchItems();
+        console.log('Hi');
+      })
     
   }
   fetchItems() {

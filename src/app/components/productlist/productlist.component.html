@@ -43,7 +43,7 @@
     <td>{{product.ActiveStatus}}</td>
     <td>
       <button type="submit" (click)="seeSingleProduct(product.BarCode)" data-bs-toggle="modal" data-bs-target="#productListEditModal" class="btn btn-primary peditPL-Btns">Edit</button>
-      <button type="submit" (click)="deleteProduct(product.HSNCode)" class="btn btn-danger">Delete</button></td>
+      <button type="submit" (click)="deleteProduct(product.HSNCode,product.HUID)" class="btn btn-danger">Delete</button></td>
 </tr>
 
 </table>

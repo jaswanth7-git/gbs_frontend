@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { BillingComponent } from './components/billing/billing.component';
 import { SalesComponent } from './components/sales/sales.component';
 import { ProductlistComponent } from './components/productlist/productlist.component';
+import { AdvanceComponent } from './components/advance/advance.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,8 @@ import { ProductlistComponent } from './components/productlist/productlist.compo
     NavbarComponent,
     BillingComponent,
     SalesComponent,
-    ProductlistComponent
+    ProductlistComponent,
+    AdvanceComponent
   ],  
   imports: [
     BrowserModule,

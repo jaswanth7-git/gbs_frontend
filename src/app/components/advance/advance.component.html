@@ -1,0 +1,42 @@
+<div class="container-fluid mt-3">
+    <h2 class="text-center">Billing Details</h2>
+    <form>
+      <div class="row row-cols-1 row-cols-md-3 text-center">
+        <div class="mb-3 col">
+          <label for="advance-amount" class="form-label">Advance Amount</label>
+          <input type="text" class="form-control" [(ngModel)]="advanceamt" ngModel required name="advance-amount">
+        </div>
+        <div class="mb-3 col">
+          <label for="mobile-number" class="form-label">Mobile Number</label>
+          <input type="number" class="form-control" [(ngModel)]="mobileno" ngModel required name="mobile-number">
+        </div>
+        <div class="mb-3 col">
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control" [(ngModel)]="desc" ngModel required name="description">
+            </textarea>
+            <div id="advancemissing-error" class="form-text"></div>
+            <button type="submit" class="btn btn-primary mt-1" (click)="add_advance(mobileno)">Add</button>
+          </div>
+      </div>
+    </form>
+  
+    <div class="container-fluid">
+      <table class="table text-center" id="advance-table">
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Advance Amount</th>
+            <th scope="col">Description</th>
+          </tr>
+        </thead>
+        <tr *ngFor="let advance of alladvances" >
+          <td>{{advance.Date}}</td>
+          <td>{{advance.Amount}}</td>
+          <td>{{advance.Description}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  
+  
+  

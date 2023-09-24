@@ -14,6 +14,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BillingComponent } from './components/billing/billing.component';
 import { SalesComponent } from './components/sales/sales.component';
 import { ProductlistComponent } from './components/productlist/productlist.component';
+import { CustomizedordersComponent } from './components/customizedorders/customizedorders.component';
+import { AdvanceComponent } from './components/advance/advance.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +28,7 @@ import { ProductlistComponent } from './components/productlist/productlist.compo
     SalesComponent,
     ProductlistComponent,
     CustomizedordersComponent,
-    AdvancesComponent,
+    AdvanceComponent,
     
   ],  
   imports: [

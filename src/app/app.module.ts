@@ -10,11 +10,9 @@ import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
 import { BillingComponent } from './components/billing/billing.component';
 import { SalesComponent } from './components/sales/sales.component';
 import { ProductlistComponent } from './components/productlist/productlist.component';
-import { CustomizedordersComponent } from './components/customizedorders/customizedorders.component';
 import { AdvanceComponent } from './components/advance/advance.component';
 @NgModule({
   declarations: [
@@ -27,16 +25,13 @@ import { AdvanceComponent } from './components/advance/advance.component';
     BillingComponent,
     SalesComponent,
     ProductlistComponent,
-    CustomizedordersComponent,
-    AdvanceComponent,
-    
+    AdvanceComponent
   ],  
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule,
     routes
   ],
   providers: [],

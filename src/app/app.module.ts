@@ -14,6 +14,7 @@ import { BillingComponent } from './components/billing/billing.component';
 import { SalesComponent } from './components/sales/sales.component';
 import { ProductlistComponent } from './components/productlist/productlist.component';
 import { AdvanceComponent } from './components/advance/advance.component';
+import { CustomizedordersComponent } from './components/customizedorders/customizedorders.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import { AdvanceComponent } from './components/advance/advance.component';
     BillingComponent,
     SalesComponent,
     ProductlistComponent,
-    AdvanceComponent
+    AdvanceComponent,
+    CustomizedordersComponent
   ],  
   imports: [
     BrowserModule,

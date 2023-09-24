@@ -8,6 +8,8 @@ import { BillingComponent } from './components/billing/billing.component';
 import { SalesComponent } from './components/sales/sales.component';
 import { ProductlistComponent } from './components/productlist/productlist.component';
 import { AdvanceComponent } from './components/advance/advance.component';
+import { CustomizedordersComponent } from './components/customizedorders/customizedorders.component';
+
 export const router: Routes=[
     {path:'',component:LoginComponent},
     {path : 'dashboard',component : DashboardComponent},
@@ -17,6 +19,7 @@ export const router: Routes=[
     {path:'navbar',component: NavbarComponent},
     {path:'sales',component: SalesComponent},
     {path: 'productlist',component:ProductlistComponent},
-    {path: 'advance',component: AdvanceComponent}
+    {path: 'advance',component: AdvanceComponent},
+    {path: 'customizedorders',component:CustomizedordersComponent},
 ];
 export const routes = RouterModule.forRoot(router);

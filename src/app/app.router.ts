@@ -9,6 +9,7 @@ import { SalesComponent } from './components/sales/sales.component';
 import { ProductlistComponent } from './components/productlist/productlist.component';
 import { AdvanceComponent } from './components/advance/advance.component';
 import { CustomizedordersComponent } from './components/customizedorders/customizedorders.component';
+import { SchemeComponent } from './components/scheme/scheme.component';
 
 export const router: Routes=[
     {path:'',component:LoginComponent},
@@ -21,5 +22,6 @@ export const router: Routes=[
     {path: 'productlist',component:ProductlistComponent},
     {path: 'advance',component: AdvanceComponent},
     {path: 'customizedorders',component:CustomizedordersComponent},
+    {path: 'schemes',component:SchemeComponent},
 ];
 export const routes = RouterModule.forRoot(router);

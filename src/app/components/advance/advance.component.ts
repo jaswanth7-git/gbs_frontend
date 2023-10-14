@@ -21,7 +21,8 @@ ngOnInit() {
 }
 add_advance(mobileno:any){
     let data = {
-      Amount: this.advanceamt
+      Amount: this.advanceamt,
+      // AdvanceDesc: this.desc
     };
     this.api.postApi("api/advance/"+mobileno,data).subscribe((response) => {
       

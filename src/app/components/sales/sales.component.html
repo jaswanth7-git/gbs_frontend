@@ -19,7 +19,7 @@
                 <td>{{item.ItemName_Description}}</td>
                 <td>{{item.HSNCode}}</td>
                 <td>{{item.Amount_RsPs}}</td>
-                <td><button type="submit" attr.data-salesid="{{item.SalesID}}" data-bs-toggle="modal" data-bs-target="#salesViewModal" class="btn btn-primary sview-Btns">View</button></td>
+                <td><button type="submit" attr.data-salesid="{{item.SalesID}}" data-bs-toggle="modal" data-bs-target="#salesViewModal" class="btn btn-primary sview-Btns" (click)="viewSalesById(item.SalesID)">View</button></td>
             </tr>
         </tbody>
       </table>

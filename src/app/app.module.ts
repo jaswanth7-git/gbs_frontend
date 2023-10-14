@@ -16,6 +16,7 @@ import { ProductlistComponent } from './components/productlist/productlist.compo
 import { AdvanceComponent } from './components/advance/advance.component';
 import { CustomizedordersComponent } from './components/customizedorders/customizedorders.component';
 import { SchemeComponent } from './components/scheme/scheme.component';
+import { CustomerComponent } from './components/customer/customer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,8 @@ import { SchemeComponent } from './components/scheme/scheme.component';
     ProductlistComponent,
     AdvanceComponent,
     CustomizedordersComponent,
-    SchemeComponent
+    SchemeComponent,
+    CustomerComponent
   ],  
   imports: [
     BrowserModule,

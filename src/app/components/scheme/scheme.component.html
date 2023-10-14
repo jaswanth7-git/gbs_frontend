@@ -29,16 +29,18 @@
         <thead>
           <tr>
             <th scope="col">Date</th>
+            <th scope="col">Customer Name</th>
             <th scope="col">Scheme Name</th>
             <th scope="col">Scheme Amount</th>
             <th scope="col">Description</th>
           </tr>
         </thead>
         <tr *ngFor="let scheme of allschemes" >
-          <td>{{scheme.Date}}</td>
+          <td>{{scheme.createdAt | date: 'dd/MM/YYYY' }}</td>
+          <td>{{scheme.CustomerName}}</td>
           <td>{{scheme.SchemeName}}</td>
-          <td>{{scheme.Amount}}</td>
-          <td>{{scheme.Description}}</td>
+          <td>{{scheme.SchemeAmount}}</td>
+          <td>{{scheme.SchemeDesc}}</td>
         </tr>
       </table>
     </div>

@@ -33,6 +33,7 @@ export class SalesComponent {
   sviewBtns:any;
   singleSales:any;
   panno:any;
+  esalesId:any;
 
   constructor(private api: ApicallService) {}
   ngOnInit() {
@@ -53,6 +54,7 @@ export class SalesComponent {
     this.api.getApi(`api/sales/SalesID/`+salesId).subscribe((response) => {
       if(response){
         this.singleSales = response;
+        this.esalesId = salesId;
         this.customername = this.singleSales.CustomerName;
         this.mobileno = this.singleSales.Phone;
         this.aadharno=this.singleSales.Aadhar;
@@ -78,5 +80,15 @@ export class SalesComponent {
       }
       
     });
+  }
+  editSales(salesId:any){
+    let data= {
+      "CustomerName" : this.customername,
+    }
+    window.location.reload();
+    this.api.putApi('api/sales/'+salesId, data).subscribe((response) => {
+      
+    });
+
   }
 }

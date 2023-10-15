@@ -117,14 +117,6 @@
                 <label for="stoneRs">Stone Rs.:
                     <input type="text" placeholder="Stone Rs." [(ngModel)]="stoneRs" name="stoneRs"  ngModel (change)="stonecalculate()" required></label><br>
             </div>
-            <div class="input-fields">
-                <label for="DiscountRs">Discount Rs:
-                    <input type="text" placeholder="Discount Rs." [(ngModel)]="discountRs" name="discountRs"  ngModel (change)="calculate()" required></label><br>
-            </div>
-            <div class="input-fields">
-                <label for="amountRs">Amount Rs.:
-                    <input type="text" placeholder="Amount Rs." [(ngModel)]="amountRs" name="amountRs"  ngModel required></label><br>
-            </div>
         </div>
         <!-- <input type="submit" (click)="submit_product" value="submit"> -->
         <a class="btn btn-dark" (click)="submit_product()">Add</a>

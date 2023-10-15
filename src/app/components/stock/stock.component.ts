@@ -142,12 +142,7 @@ export class StockComponent {
     
   }
   calculate(){
-    if(this.discountRs == undefined){
-      this.amountRs = this.netweight*this.ratepergram;
-    }
-    else{
-      this.amountRs = this.netweight*this.ratepergram-this.discountRs;
-    }
+    this.amountRs = this.netweight*this.ratepergram;
     this.amountRs = this.amountRs.toFixed(4);
   }
   submit_product(){

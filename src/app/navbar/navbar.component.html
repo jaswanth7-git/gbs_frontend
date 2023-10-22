@@ -80,8 +80,10 @@
       </div>
       <div class="gs-daily-price">
        <div class="container gs-prices">
-        <span><strong>Gold Price :</strong> ₹7878787.456</span>
-        <span><strong>Silver Price :</strong> ₹454545.456</span>
+        <span><strong>Gold 24K Price:</strong>{{this.twentyfourKarat}} </span>
+        <span><strong>Gold 22K Price:</strong>{{this.twentytwoKarat}} </span>
+        <span><strong>Gold 18K Price:</strong>{{this.eighteenKarat}} </span>
+        <span><strong>Silver Price :</strong>{{this.silver}}</span>
         <button class="btn btn-outline-secondary gs-update-btn" data-bs-toggle="modal" data-bs-target="#gsModal">Update Price</button>
       </div>
       </div>
@@ -92,3 +94,39 @@
       </div>
     </nav>
   </section>
+
+<!-- model for update price -->
+  <div class="modal fade" id="gsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="exampleModalLabel">Gold Price</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row row-cols-1 row-cols-md-4 text-center">
+            <div class="mb-3 col">
+                <label for="24K" class="form-label">24K</label>
+                <input type="text" class="form-control text-center"  name="24K" [(ngModel)]="twentyfourKarat"  ngModel>
+            </div>
+            <div class="mb-3 col">
+                <label for="22K" class="form-label">22K</label>
+                <input type="text" class="form-control text-center"  name="22K" [(ngModel)]="twentytwoKarat" ngModel>
+            </div>
+            <div class="mb-3 col">
+              <label for="18K" class="form-label">18K</label>
+              <input type="text" class="form-control text-center"  name="18K" [(ngModel)]="eighteenKarat" ngModel>
+            </div>
+            <div class="mb-3 col">
+                <label for="Silver" class="form-label">Silver</label>
+                <input type="text" class="form-control text-center"  name="Silver" [(ngModel)]="silver"  ngModel >
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" (click)="savegoldprice()">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

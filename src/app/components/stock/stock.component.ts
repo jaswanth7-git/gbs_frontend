@@ -51,7 +51,6 @@ export class StockComponent {
   ngOnInit() {
     this.api.getApi("api/categories/").subscribe((response) => {
       this.categories = response;
-      console.log(this.categories);
     });
   }
  
@@ -63,6 +62,18 @@ export class StockComponent {
   }
   getCaratValue(event:any){
     this.carat = event.target.value;
+    if(this.carat =="24K"){
+      this.ratepergram = localStorage.getItem("24K");
+    }
+    else if(this.carat == "22K"){
+      this.ratepergram = localStorage.getItem("22K");
+    }
+    else if(this.carat == "18K"){
+      this.ratepergram = localStorage.getItem("18K");
+    }
+    else{
+      this.ratepergram = localStorage.getItem("Silver");
+    }
   }
   getMcValue(event:any){
     this.mctype = event.target.value;

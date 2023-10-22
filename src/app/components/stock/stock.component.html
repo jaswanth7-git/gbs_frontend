@@ -6,6 +6,7 @@
                 <label for="carat-type">Carat Type:
                <select (change)="getCaratValue($event)">
                     <option value="">-- Select Carat --</option>
+                    <option value="24K">24K</option>
                     <option value="22K">22K</option>
                     <option value="18K">18K</option>
                     <option value="silver">Silver</option>
@@ -58,7 +59,7 @@
             </div>
             <div class="input-fields">
                 <label for="ratepergram">Rate Per Gram:
-                    <input type="text" placeholder="Rate Per Gram" [(ngModel)]="ratepergram" name="ratepergram"  ngModel (change)="calculate()"></label><br>
+                    <input type="text" placeholder="Rate Per Gram" [(ngModel)]="ratepergram" name="ratepergram"  ngModel (change)="calculate()" readonly></label><br>
             </div>
             <div class="input-fields">
                 <label for="making-charge">Making Charge:

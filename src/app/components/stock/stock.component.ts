@@ -41,7 +41,6 @@ export class StockComponent {
   tgnumber:any;
   mgamount:any;
   wdamount:any;
-  vaamout:any;
   stoneamount:any;
   isVisible!: boolean | false;
   stonepieces:any;
@@ -160,21 +159,29 @@ export class StockComponent {
     let myId = uuid.v4();
     console.log(myId.slice(0,6));
     let data = {
-      ItemName_Description: this.itemname,
+      ItemName_Description: this.itemname+"",
       HSNCode: this.hsncode+"",
+      HUID: this.huid+"",
+      TagName: this.tgnumber+"",
+      BarCode_Prefix: this.barcode+"",
       GrWeight_Grams: this.gramweight+"",
       NetWeight_Grams: this.netweight+"",
       Rate_Per_Gram: this.ratepergram+"",
+      Making_Charge: this.mcvalue+"",
+      Making_Direct: this.mctype+"",
+      Wastage_Charge: this.wctype+"",
+      Wastage_Direct: this.wcvalue+"",
+      V_A: this.vavalue+"",
+      Stone_Type: this.stonetype+"",
+      Stone_Pieces_CTS: this.stonepieces+"",
       Stones_RsPs: this.stoneRs+"",
-      Discount_RsPs: this.discountRs+"",
+      Discount_RsPs: "0",
       Amount_RsPs: this.amountRs+"",
-      BarCode_path: "Pathuuuu",
       BarCode: this.barcode+myId.slice(0,8),
-      Branch: "Delhi",
-      
+      Branch: "Dubai",
+      //Branch: localStorage.setItem("branch");
     };
-    this.api.postApi("api/products/"+this.CategoryDropdownResponse,data).subscribe((response) => {
-      console.log(response);
+    this.api.postApi("api/products/"+this.CategoryDropdownResponse+"/"+this.SubCategoryDropdownResponse,data).subscribe((response) => {
       console.log("Product Pushed to database");
     });
   }

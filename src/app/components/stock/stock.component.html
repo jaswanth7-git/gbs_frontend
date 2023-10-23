@@ -25,7 +25,7 @@
                 <label for="subcategory">Sub-Category:
                <select (change)="getSubCategoryValue($event)">
                     <option value="">Select Sub-Category</option>
-                    <option *ngFor="let item of categories" [ngValue]="categories.CategoryID">{{item.CategoryName}}</option>
+                    <option *ngFor="let item of categories" [ngValue]="categories.CategoryID">{{item.SubCategoryName}}</option>
                 </select>
                 </label>
             </div>

@@ -57,7 +57,8 @@ export class BillingComponent {
     });
   }
   getProductDetails(productBarCode:any) {
-      this.api.getApi("api/products/barcode/"+productBarCode).subscribe((response) => {
+      this.api.getApi("api/products/"+productBarCode).subscribe((response) => {
+        console.log(response);
         this.logvalu=response.ItemName_Description;;
         this.itemname = response.ItemName_Description;
         this.hsncode = response.HSNCode,
@@ -83,7 +84,8 @@ export class BillingComponent {
       let single_product_details:string[];
 
       // Ee array lo values api nunchi ostundi for the 7 mandatory values
-      this.api.getApi("api/products/barcode/"+product_bar_code).subscribe((response) => {
+      this.api.getApi("api/products/"+product_bar_code).subscribe((response) => {
+        console.log(response);
         this.logvalu=response.ItemName_Description;;
         this.itemname = response.ItemName_Description;
         this.hsncode = response.HSNCode,

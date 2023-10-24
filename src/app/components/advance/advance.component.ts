@@ -22,10 +22,11 @@ ngOnInit() {
 add_advance(mobileno:any){
     let data = {
       Amount: this.advanceamt,
-      // AdvanceDesc: this.desc
+      AdvanceDesc: this.desc
     };
+    console.log(mobileno);
     this.api.postApi("api/advance/"+mobileno,data).subscribe((response) => {
-      
+      console.log(response);
     });
 }
 }

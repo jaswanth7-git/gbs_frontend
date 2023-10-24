@@ -52,13 +52,12 @@ export class BillingComponent {
   
   constructor(private api: ApicallService) {}
   ngOnInit() {
-    this.api.getApi("api/categories/").subscribe((response) => {
+    this.api.getApi("api/products/").subscribe((response) => {
       this.categories = response;
     });
   }
   getProductDetails(productBarCode:any) {
       this.api.getApi("api/products/"+productBarCode).subscribe((response) => {
-        console.log(response);
         this.logvalu=response.ItemName_Description;;
         this.itemname = response.ItemName_Description;
         this.hsncode = response.HSNCode,
@@ -73,7 +72,6 @@ export class BillingComponent {
   }
 
   add_billing_product(product_bar_code:any){
-    this.getProductDetails(product_bar_code)
     if(product_bar_code==undefined || product_bar_code.length<=9){
       document.getElementById("pbarcode-error")!.innerText="The product bar code length should be 10";
     }
@@ -81,11 +79,8 @@ export class BillingComponent {
       document.getElementById("pbarcode-error")!.innerText="";
       let table: HTMLTableElement = <HTMLTableElement>document.getElementById("billing-tbody");
       let hrow = table.insertRow(0);
-      let single_product_details:string[];
-
-      // Ee array lo values api nunchi ostundi for the 7 mandatory values
+      let single_product_details:any[];
       this.api.getApi("api/products/"+product_bar_code).subscribe((response) => {
-        console.log(response);
         this.logvalu=response.ItemName_Description;;
         this.itemname = response.ItemName_Description;
         this.hsncode = response.HSNCode,
@@ -96,19 +91,21 @@ export class BillingComponent {
         this.stoneRs = response.Stones_RsPs,
         this.discountRs = response.Discount_RsPs,
         this.amountRs = response.Amount_RsPs
-      });
-      single_product_details=[this.logvalu,this.hsncode,this.gramweight,this.netweight,this.ratepergram,this.vavalue,this.stoneamount,this.discountRs,this.amountRs];
-      for(let i=0;i<9;i++){
-        let cell = hrow.insertCell(i);
-        cell.innerHTML = single_product_details[i];
-      }
-      hrow.insertCell(9).innerHTML=`<button type="submit" data-pbcode="`+product_bar_code+`" data-bs-toggle="modal" data-bs-target="#productEditModal" class="btn btn-primary pedit-Btns">Edit</button>`;
-      let pbarcodeelem=<HTMLInputElement>document.getElementById("pbarcode-inp");
-      pbarcodeelem!.value="";
-      this.peditBtns=document.querySelectorAll(".pedit-Btns");
-      [...this.peditBtns].forEach((peditBtn) => {
-        peditBtn.addEventListener('click', () => {
-          this.getProductDetails(peditBtn.getAttribute("data-pbcode"));
+
+        single_product_details=[this.logvalu,this.hsncode,this.gramweight,this.netweight,this.ratepergram,this.vavalue,this.stoneamount,this.discountRs,this.amountRs];
+        for(let i=0;i<9;i++){
+          let cell = hrow.insertCell(i);
+          cell.innerHTML = single_product_details[i];
+          console.log(single_product_details[i]);
+        }
+        hrow.insertCell(9).innerHTML=`<button type="submit" data-pbcode="`+product_bar_code+`" data-bs-toggle="modal" data-bs-target="#productEditModal" class="btn btn-primary pedit-Btns">Edit</button>`;
+        let pbarcodeelem=<HTMLInputElement>document.getElementById("pbarcode-inp");
+        pbarcodeelem!.value="";
+        this.peditBtns=document.querySelectorAll(".pedit-Btns");
+        [...this.peditBtns].forEach((peditBtn) => {
+          peditBtn.addEventListener('click', () => {
+            this.getProductDetails(peditBtn.getAttribute("data-pbcode"));
+          });
         });
       });
     }

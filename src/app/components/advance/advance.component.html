@@ -26,14 +26,14 @@
           <tr>
             <th scope="col">Date</th>
             <th scope="col">Advance Amount</th>
-            <!-- <th scope="col">Advance Description</th> -->
+            <th scope="col">Advance Description</th>
             <th scope="col">Cusomer Name</th>
             <th scope="col">Description</th>
           </tr>
         </thead>
         <tr *ngFor="let advance of alladvances" >
           <td>{{advance.Date}}</td>
-          <!-- <td>{{advance.AdvanceDesc}}</td> -->
+          <td>{{advance.AdvanceDesc}}</td>
           <td>{{advance.Amount}}</td>
           <td>{{advance.CustomerName}}</td>
           <td>{{advance.Description}}</td>

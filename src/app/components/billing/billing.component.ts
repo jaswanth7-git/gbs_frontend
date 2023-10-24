@@ -60,11 +60,13 @@ export class BillingComponent {
       this.api.getApi("api/products/"+productBarCode).subscribe((response) => {
         this.logvalu=response.ItemName_Description;;
         this.itemname = response.ItemName_Description;
+        this.huid = response.HUID;
         this.hsncode = response.HSNCode,
+        this.tagnumber = response.TagName,
         this.gramweight = response.GrWeight_Grams,
         this.netweight = response.NetWeight_Grams,
         this.ratepergram = response.Rate_Per_Gram,
-        this.vavalue = response.ValAdd_RsPs,
+        this.vavalue = response.V_A,
         this.stoneRs = response.Stones_RsPs,
         this.discountRs = response.Discount_RsPs,
         this.amountRs = response.Amount_RsPs
@@ -87,7 +89,7 @@ export class BillingComponent {
         this.gramweight = response.GrWeight_Grams,
         this.netweight = response.NetWeight_Grams,
         this.ratepergram = response.Rate_Per_Gram,
-        this.vavalue = response.ValAdd_RsPs,
+        this.vavalue = response.V_A,
         this.stoneRs = response.Stones_RsPs,
         this.discountRs = response.Discount_RsPs,
         this.amountRs = response.Amount_RsPs

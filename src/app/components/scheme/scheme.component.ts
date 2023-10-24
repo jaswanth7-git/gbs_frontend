@@ -17,18 +17,19 @@ export class SchemeComponent {
   
   ngOnInit() {
     this.api.getApi("api/schemes/").subscribe((response) => {
-      console.log(response);
       this.allschemes = response;
     });
   }
-  add_scheme(mobileno:any){
+  add_scheme(){
       let data = {
         SchemeAmount: this.schemeamt,
+        MobileNumber: this.mobileno+"",
         SchemeName: this.schemename,
         SchemeDesc: this.desc,
       };
-      this.api.postApi("api/schemes/"+mobileno,data).subscribe((response) => {
+      this.api.postApi("api/schemes/",data).subscribe((response) => {
         console.log(response);
+        window.location.reload();
       });
   }
   }

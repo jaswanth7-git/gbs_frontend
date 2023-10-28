@@ -49,15 +49,22 @@ export class BillingComponent {
   huid:any;
   tagnumber: any;
   logvalu:any;
+  categoryname:any;
+  subcategoryname:any;
+  ngDropdown:any;
   
   constructor(private api: ApicallService) {}
   ngOnInit() {
-    this.api.getApi("api/products/").subscribe((response) => {
+    this.api.getApi("api/categories/").subscribe((response) => {
       this.categories = response;
     });
   }
   getProductDetails(productBarCode:any) {
       this.api.getApi("api/products/"+productBarCode).subscribe((response) => {
+        console.log(response);
+        this.carat = response.CaratType+"K";
+        this.categoryname = response.CategoryID;
+        this.subcategoryname = response.CategoryID;
         this.logvalu=response.ItemName_Description;;
         this.itemname = response.ItemName_Description;
         this.huid = response.HUID;
@@ -66,6 +73,10 @@ export class BillingComponent {
         this.gramweight = response.GrWeight_Grams,
         this.netweight = response.NetWeight_Grams,
         this.ratepergram = response.Rate_Per_Gram,
+        this.mctype = response.Making_Direct,
+        this.mcvalue = response.Making_Charge,
+        this.wctype = response.Wastage_Charge,
+        this.wcvalue = response.Wastage_Direct,
         this.vavalue = response.V_A,
         this.stoneRs = response.Stones_RsPs,
         this.discountRs = response.Discount_RsPs,
@@ -90,11 +101,16 @@ export class BillingComponent {
         this.netweight = response.NetWeight_Grams,
         this.ratepergram = response.Rate_Per_Gram,
         this.vavalue = response.V_A,
+        this.stonetype = response.Stone_Type,
         this.stoneRs = response.Stones_RsPs,
+        this.stonepi = response.Stone_Pieces_CTS,
         this.discountRs = response.Discount_RsPs,
         this.amountRs = response.Amount_RsPs
-
-        single_product_details=[this.logvalu,this.hsncode,this.gramweight,this.netweight,this.ratepergram,this.vavalue,this.stoneamount,this.discountRs,this.amountRs];
+        if(this.stonepi=="pieces"){
+          this.isVisible = true;
+          this.stonepieces = response.Stone_Pieces;
+        }
+        single_product_details=[this.logvalu,this.hsncode,this.gramweight,this.netweight,this.ratepergram,this.vavalue,this.stoneRs,this.discountRs,this.amountRs];
         for(let i=0;i<9;i++){
           let cell = hrow.insertCell(i);
           cell.innerHTML = single_product_details[i];

@@ -66,7 +66,7 @@
         <div class="row row-cols-1 row-cols-md-4 text-center">
           <div class="mb-3 col">
             <label for="carat-type" class="form-label">Carat Type:</label>
-            <select class="form-control"  (change)="getCaratValue($event)">
+            <select class="form-control" [(ngModel)]='carat' name="carat" id="carat"  (change)="getCaratValue($event)">
               <option value="">-- Select Carat --</option>
               <option value="24K">24K</option>
               <option value="22K">22K</option>
@@ -76,16 +76,16 @@
           </div>
           <div class="mb-3 col">
             <label for="category-name" class="form-label">Category</label>
-            <select class="form-control" (change)="getCategoryValue($event)">
+            <select class="form-control" [(ngModel)]='categoryname' name="categoryname" id="categoryname"  (change)="getCategoryValue($event)">
               <option value="">--Select Category--</option>
-              <option *ngFor="let item of categories" [ngValue]="categories.CategoryID">{{item.CategoryName}}</option>
+              <option *ngFor="let item of categories" value="{{item.CategoryID}}">{{item.CategoryName}}</option>
             </select>
           </div>
           <div class="mb-3 col">
             <label for="subcategory-name" class="form-label">Sub Category</label>
-            <select class="form-control" (change)="getSubCategoryValue($event)">
+            <select class="form-control" [(ngModel)]='subcategoryname' name="subcategoryname" id="subcategoryname" (change)="getSubCategoryValue($event)">
               <option value="">--Select Sub-Category--</option>
-              <option *ngFor="let item of categories" [ngValue]="categories.CategoryID">{{item.CategoryName}}</option>
+              <option *ngFor="let item of categories" value="{{item.CategoryID}}">{{item.SubCategoryName}}</option>
             </select>
           </div>
           <div class="mb-3 col">
@@ -119,7 +119,7 @@
           </div>
           <div class="mb-3 col">
             <label for="making-charge" class="form-label">Making Charge:</label>
-            <select class="form-control" (change)="getMcValue($event)">
+            <select class="form-control" [(ngModel)]='mctype' name="mctype" id="mctype" (change)="getMcValue($event)">
               <option value="">--Select type--</option>
               <option value="percentage">Percentage</option>
               <option value="amount">Amount</option>
@@ -131,7 +131,7 @@
           </div>
           <div class="mb-3 col">
             <label for="wastage-charge:" class="form-label">Wastage Charge:</label>
-            <select class="form-control" (change)="getWcValue($event)">
+            <select class="form-control" [(ngModel)]='wctype' name="wctype" id="wctype" (change)="getWcValue($event)">
               <option value="">--Select type--</option>
               <option value="percentage">Percentage</option>
               <option value="amount">Amount</option>
@@ -147,7 +147,7 @@
           </div>
           <div class="mb-3 col">
             <label for="wastage-charge:" class="form-label">Stone Type:</label>
-            <select class="form-control" (change)="getStoneType($event)">
+            <select class="form-control" [(ngModel)]='stonetype' name="stonetype" id="stonetype" (change)="getStoneType($event)">
               <option value="">-- Select Stone Type --</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -156,7 +156,7 @@
           </div>
           <div class="mb-3 col">
             <label for="stone" class="form-label">Stone Pieces/CTS:</label>
-            <select class="form-control" (change)="getStone($event)">
+            <select class="form-control" [(ngModel)]='stonepi' name="stonepi" id="stonepi" (change)="getStone($event)">
               <option value="">-- Select --</option>
               <option value="pieces">Pieces</option>
               <option value="cts">CTS</option>

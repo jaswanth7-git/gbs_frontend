@@ -173,7 +173,8 @@ export class StockComponent {
       Wastage_Direct: this.wcvalue+"",
       V_A: this.vavalue+"",
       Stone_Type: this.stonetype+"",
-      Stone_Pieces_CTS: this.stonepieces+"",
+      Stone_Pieces_CTS: this.stonepi+"",
+      Stone_Pieces:this.stonepieces+"",
       Stones_RsPs: this.stoneRs+"",
       Discount_RsPs: "0",
       Amount_RsPs: this.amountRs+"",
@@ -181,6 +182,7 @@ export class StockComponent {
       Branch: "Dubai",
       //Branch: localStorage.setItem("branch");
     };
+    console.log(data);
     this.api.postApi("api/products/"+this.CategoryDropdownResponse+"/"+this.SubCategoryDropdownResponse,data).subscribe((response) => {
       console.log("Product Pushed to database");
     });

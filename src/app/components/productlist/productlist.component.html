@@ -1,6 +1,6 @@
 <table>
 <tr>
-    
+
     <th>ItemName Description</th>
     <th>HSN Code</th>
     <th>HU ID</th>
@@ -20,6 +20,7 @@
     <th>Branch</th>
     <th>Active Status</th>
     <th> Action</th>
+    <th>print barcode</th>
 
 </tr>
 <tr *ngFor="let product of products" >
@@ -44,6 +45,7 @@
     <td>
       <button type="submit" (click)="seeSingleProduct(product.BarCode)" data-bs-toggle="modal" data-bs-target="#productListEditModal" class="btn btn-primary peditPL-Btns">Edit</button>
       <button type="submit" (click)="deleteProduct(product.HSNCode,product.HUID)" class="btn btn-danger">Delete</button></td>
+      <button type="submit">print barcode</button>
 </tr>
 
 </table>
@@ -155,7 +157,7 @@
             <div class="mb-3 col" *ngIf="isVisible">
               <label for="stonepieces" class="form-label">Stone Pieces.:</label>
               <input type="number" min="0" class="form-control" [(ngModel)]="stonepieces" ngModel required (change)="stonecalculate()" name="stonepieces">
-            </div> 
+            </div>
             <div class="mb-3 col">
               <label for="stoneRs" class="form-label">Stone Rs.</label>
               <input type="number" min="0" class="form-control" [(ngModel)]="stoneRs" (change)="stonecalculate()" ngModel required name="stoneRs">
@@ -177,4 +179,3 @@
       </div>
     </div>
   </div>
-  

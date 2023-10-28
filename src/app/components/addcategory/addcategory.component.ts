@@ -21,7 +21,6 @@ export class AddcategoryComponent {
       // console.log(response);
       // console.log("Category Added");
       this.categories = response;
-      
     });
   }
 
@@ -39,6 +38,7 @@ export class AddcategoryComponent {
     this.api.postApi("api/categories/",data).subscribe((response) => {
       // console.log(response);
       console.log("Category Added");
+      window.location.reload();
     });
 
   }

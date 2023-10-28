@@ -1,0 +1,39 @@
+<div class="category column">
+
+    <label for="carattype">Carat Type</label>
+    <input type="number" placeholder="carattype" [(ngModel)]="carattype" ngModel required name="carattype">
+    <label for="categoryname">Category Name</label>
+    <input  class="input" type="text" placeholder="categoryname" [(ngModel)]="categoryname" ngModel required name="categoryname"><br><br>
+    <label for="subcategoryname">Sub Category Name</label>
+    <input type="text" placeholder="subcategoryname" [(ngModel)]="subcategoryname" ngModel required name="subcategoryname"> 
+    <label for="quantity">Quantity</label>
+    <input type="number" placeholder="quantity" [(ngModel)]="quantity" ngModel required name="quantity">
+</div>
+<div class="buttons">
+
+    <button class="btn1" (click)="addcategory()">Add Category</button>
+
+</div>
+
+<div class="container-fluid">
+    <table class="table" >
+      <thead>
+        <tr>
+          <th scope="col">Carat Type</th>
+          <th scope="col">Category Name</th>
+          <th scope="col">Sub Category NAme</th>
+          <th scope="col">Quantity</th>
+        </tr>
+        <tr *ngFor="let category of categories">
+            <td>{{category.carattype}}</td>
+            <td>{{category.categoryname}}</td>
+            <td>{{category.subcategoryname}}</td>
+            <td>{{category.quantity}}</td>
+
+        </tr>
+      </thead>
+    </table>
+  </div>
+
+
+

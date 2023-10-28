@@ -23,18 +23,30 @@ export class CustomizedordersComponent {
   gramrate:any;
   modelnumber: any;
   advances:any;
+  customizedorders:any;
+  
   
 
   constructor(private api: ApicallService) {}
 
   applyFilters(itemNameFilter:any,deliveryDateFilter:any,modelNumberFilter:any){
 
-    this.api.getApi("api/customizedOrders").subscribe((response)=> {
+    this.api.getApi("api/customizedOrders"+this.modelNumberFilter).subscribe((response)=> {
 
 
     });
 
       
+  }
+
+  ngOnInit(){
+
+    this.api.getApi("api/customized/").subscribe((response) => {
+      // console.log(response);
+      // console.log("Category Added");
+      this.customizedorders = response;
+    });
+
   }
 
   addcustomizedorders(){

@@ -26,8 +26,22 @@
           <th scope="col">Model No</th>
           <th scope="col">Advances</th>
         </tr>
+
+        <tr *ngfor="let customizedorder for customizedorders">
+            <td>{{customizedorder.OrderDate}}</td>
+            <td>{{customizedorder.DeliveryDate}}</td>
+            <td>{{customizedorder.ItemName}}</td>
+            <td>{{customizedorder.Weight}}</td>
+            <td>{{customizedorder.Making_Charge}}</td>
+            <td>{{customizedorder.Wastage}}</td>
+            <td>{{customizedorder.Gram_Rate}}</td>
+            <td>{{customizedorder.ModelNumber}}</td>
+            <td>{{customizedorder.Advance_Amount}}</td>
+
+
+        </tr>
       </thead>
-      <tbody id="customizedorders-tbody">
+      <tbody >
       </tbody>
     </table>
   </div>

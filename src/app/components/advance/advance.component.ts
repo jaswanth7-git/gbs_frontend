@@ -26,7 +26,7 @@ add_advance(mobileno:any){
     };
     console.log(mobileno);
     this.api.postApi("api/advance/"+mobileno,data).subscribe((response) => {
-      console.log(response);
+      location.reload();
     });
 }
 }

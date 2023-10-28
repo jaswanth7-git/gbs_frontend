@@ -6,8 +6,8 @@
     <input type="text" placeholder="Model Number" [(ngModel)]="modelNumberFilter"/> 
 </div>
 <div class="buttons">
-    <button class="btn1" (click)="applyFilters(itemNameFilter,deliveryDateFilter,modelNumberFilter)">Apply Filters</button>
-    <button class="btn2 btn-primary peditPL-Btns" type="submit" (click)="addcustomizedorders()" data-bs-toggle="modal" data-bs-target="#productListAddModal">Add</button>
+    <button class="btn1" (click)="applyFilters()">Apply Filters</button>
+    <button class="btn2 btn-primary peditPL-Btns" type="submit"  data-bs-toggle="modal" data-bs-target="#productListAddModal">Add</button>
 </div>
 
 
@@ -27,8 +27,8 @@
           <th scope="col">Advances</th>
         </tr>
 
-        <tr *ngfor="let customizedorder for customizedorders">
-            <td>{{customizedorder.OrderDate}}</td>
+        <tr *ngFor="let customizedorder of customizedorders">
+            <td>{{customizedorder.OrderedDate}}</td>
             <td>{{customizedorder.DeliveryDate}}</td>
             <td>{{customizedorder.ItemName}}</td>
             <td>{{customizedorder.Weight}}</td>
@@ -98,7 +98,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Add Order</button>
+                <button type="button" class="btn btn-primary" (click)="addcustomizedorders()" data-bs-dismiss="modal">Add Order</button>
               </div>
         </div>      
     </div>

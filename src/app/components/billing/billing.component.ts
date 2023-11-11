@@ -52,7 +52,9 @@ export class BillingComponent {
   categoryname:any;
   subcategoryname:any;
   ngDropdown:any;
-  
+  existingadvances:any;
+  valid_advances : number[] = [];
+  advance_flag!:boolean | false;
   constructor(private api: ApicallService) {}
   ngOnInit() {
     this.api.getApi("api/categories/").subscribe((response) => {
@@ -60,8 +62,15 @@ export class BillingComponent {
     });
   }
   getProductDetails(productBarCode:any) {
+    this.api.getApi("api/advance/9912029080").subscribe((response)=>{
+      this.existingadvances = response;
+      for(let x=0 ; x < this.existingadvances.length ; x++){
+        if(Number(this.existingadvances[x].Amount) <=Number( this.amountRs)){
+          this.valid_advances.push(this.existingadvances[x].Amount)
+        }
+      }
+    })
       this.api.getApi("api/products/"+productBarCode).subscribe((response) => {
-        console.log(response);
         this.carat = response.CaratType+"K";
         this.categoryname = response.CategoryID;
         this.subcategoryname = response.CategoryID;
@@ -129,7 +138,7 @@ export class BillingComponent {
     }
 
   }
-  
+
   getCategoryValue(event:any){
     this.CategoryDropdownResponse = event.target.value;
   }
@@ -249,11 +258,9 @@ export class BillingComponent {
       BarCode_path: "Pathuuuu",
       BarCode: this.barcode,
       Branch: "Delhi",
-      
+
     };
     this.api.postApi("api/products/"+this.CategoryDropdownResponse,data).subscribe((response) => {
-      console.log(response);
-      console.log("Product Pushed to database");
     });
   }
 }

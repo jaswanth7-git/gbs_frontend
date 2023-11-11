@@ -165,7 +165,7 @@
           <div class="mb-3 col" *ngIf="isVisible">
             <label for="stonepieces" class="form-label">Stone Pieces.:</label>
             <input type="number" min="0" class="form-control" [(ngModel)]="stonepieces" ngModel required (change)="stonecalculate()" name="stonepieces">
-          </div> 
+          </div>
           <div class="mb-3 col">
             <label for="stoneRs" class="form-label">Stone Rs.</label>
             <input type="number" min="0" class="form-control" [(ngModel)]="stoneRs" (change)="stonecalculate()" ngModel required name="stoneRs">
@@ -177,6 +177,14 @@
           <div class="mb-3 col">
             <label for="amountRs" class="form-label">Amount Rs.</label>
             <input type="number" min="0" class="form-control" [(ngModel)]="amountRs" ngModel required name="amountRs">
+          </div>
+          <div class="mb-3 col">
+            <label for="amountRs" class="form-label">Avaliable advances</label>
+            <div *ngFor="let advance of valid_advances;let i = index" class="advances">
+              <label  *ngIf="valid_advances[i]" for="">{{advance}}</label>
+              <input  *ngIf="valid_advances[i]" value="{{i}}" type="checkbox">
+            </div>
+
           </div>
         </div>
       </div>

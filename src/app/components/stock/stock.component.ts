@@ -157,7 +157,6 @@ export class StockComponent {
   }
   submit_product(){
     let myId = uuid.v4();
-    console.log(myId.slice(0,6));
     let data = {
       ItemName_Description: this.itemname+"",
       HSNCode: this.hsncode+"",
@@ -185,6 +184,8 @@ export class StockComponent {
     console.log(data);
     this.api.postApi("api/products/"+this.CategoryDropdownResponse+"/"+this.SubCategoryDropdownResponse,data).subscribe((response) => {
       console.log("Product Pushed to database");
+      alert("Product Pushed to database");
+      window.location.reload();
     });
   }
   

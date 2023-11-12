@@ -47,19 +47,19 @@
             </div>
             <div class="input-fields">
                 <label for="barcodeprefix">Barcode Prefix:
-                    <input type="text" placeholder="Barcode Prefix" [(ngModel)]="barcode" name="barcode"  ngModel required ></label><br>
+                    <input type="text" placeholder="Barcode Prefix"  ngModel minlength="2" maxlength="2" [(ngModel)]="barcode" name="barcode"  ngModel required ></label><br>
             </div>
             <div class="input-fields">
                 <label for="gramweight">Gram Weight:
-                    <input type="text" placeholder="Gram Weight" [(ngModel)]="gramweight" name="gramweight"  ngModel required></label><br>
+                    <input type="number" min="0" placeholder="Gram Weight" [(ngModel)]="gramweight" name="gramweight"  ngModel required></label><br>
             </div>
             <div class="input-fields">
                 <label for="netweight">Net Weight:
-                    <input type="text" placeholder="Net Weight" [(ngModel)]="netweight" name="netweight"  ngModel required></label><br>
+                    <input type="number" min="0" placeholder="Net Weight" [(ngModel)]="netweight" name="netweight"  ngModel required></label><br>
             </div>
             <div class="input-fields">
                 <label for="ratepergram">Rate Per Gram:
-                    <input type="text" placeholder="Rate Per Gram" [(ngModel)]="ratepergram" name="ratepergram"  ngModel (change)="calculate()" readonly></label><br>
+                    <input type="number" min="0" placeholder="Rate Per Gram" [(ngModel)]="ratepergram" name="ratepergram"  ngModel (change)="calculate()" readonly></label><br>
             </div>
             <div class="input-fields">
                 <label for="making-charge">Making Charge:
@@ -72,7 +72,7 @@
             </div>
             <div class="input-fields">
                 <label for="makingdirect">Making Direct:
-                    <input type="text" placeholder="Making Charge" [(ngModel)]="mcvalue" name="mcvalue"  ngModel (change)="mgcalculate()" required></label><br>
+                    <input type="number" min="0" placeholder="Making Charge" [(ngModel)]="mcvalue" name="mcvalue"  ngModel (change)="mgcalculate()" required></label><br>
             </div>
             <div class="input-fields">
                 <label for="wastagecharge">Wastage Charge:
@@ -85,11 +85,11 @@
             </div>
             <div class="input-fields">
                 <label for="wastagedirect">Wastage Direct:
-                    <input type="text" placeholder="Wastage Charge" [(ngModel)]="wcvalue" name="wcvalue"  ngModel (change)="wdcalculate()" required></label><br>
+                    <input type="number" min="0" placeholder="Wastage Charge" [(ngModel)]="wcvalue" name="wcvalue"  ngModel (change)="wdcalculate()" required></label><br>
             </div>
             <div class="input-fields">
                 <label for="va">V.A:
-                    <input type="text" placeholder="V.A" [(ngModel)]="vavalue" name="vavalue"  ngModel required></label><br>
+                    <input type="number" min="0" [(ngModel)]="vavalue" name="vavalue"  ngModel required></label><br>
             </div>
             <div class="input-fields">
                 <label for="stonetype">Stone Type:
@@ -112,11 +112,11 @@
             </div>
             <div class="input-fields"  *ngIf="isVisible">
                 <label for="stonepieces">Stone Pieces.:
-                    <input type="text" placeholder="Stone Pieces." [(ngModel)]="stonepieces" name="stonepieces"  ngModel (change)="stonecalculate()" required></label><br>
+                    <input type="number" min="0" [(ngModel)]="stonepieces" name="stonepieces"  ngModel (change)="stonecalculate()" required></label><br>
             </div>
             <div class="input-fields">
                 <label for="stoneRs">Stone Rs.:
-                    <input type="text" placeholder="Stone Rs." [(ngModel)]="stoneRs" name="stoneRs"  ngModel (change)="stonecalculate()" required></label><br>
+                    <input type="number" min="0" placeholder="Stone Rs." [(ngModel)]="stoneRs" name="stoneRs"  ngModel (change)="stonecalculate()" required></label><br>
             </div>
         </div>
         <!-- <input type="submit" (click)="submit_product" value="submit"> -->
